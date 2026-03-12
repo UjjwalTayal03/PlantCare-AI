@@ -2,10 +2,12 @@ from flask import Flask, request, jsonify
 import torch
 from torchvision import models, transforms
 from PIL import Image
+from flask_cors import CORS   # add this import
 
 app = Flask(__name__)
+CORS(app)   # add this line here
 
-# Load pretrained model (transfer learning concept)
+# load pretrained model
 model = models.resnet18(pretrained=True)
 model.eval()
 
